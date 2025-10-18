@@ -1,5 +1,5 @@
 # 🌑 About Me:
-## Hello there 🌀<br><br>- 🧪 I’m currently working on AI and Deep Learning projects like OCR, image classification, and PyTorch demos.<br>- ✒️ I’m currently learning advanced computer vision techniques and model optimization.<br>- ⚡ I’m looking for guidance on experimenting with new deep learning architectures and improving model performance.<br>- 🔥 Ask me about Python, PyTorch, CNNs, RNNs, CRNNs, OCR, or AI project demos.<br>- 🔗 How to reach me: barkinadiguzel@example.com (or via GitHub DM)<br>
+## Hello there 🌀<br><br>- 🧪 I’m currently working on AI and Deep Learning projects like OCR, image classification, and PyTorch demos.<br>- ✒️ I’m currently learning advanced computer vision techniques and model optimization.<br>- ⚡ I’m looking for guidance on experimenting with new deep learning architectures and improving model performance.<br>- 🔥 Ask me about Python, PyTorch, CNNs, RNNs, CRNNs, OCR, or AI project demos.<br>- 🔗 How to reach me: barkinadiguzel@gmail.com (or via GitHub DM)<br>
 
 
 
