@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Barkın
 **AI & Physics Enthusiast | Aspiring Researcher | Python & PyTorch Lover**
 
-![banner](https://i.pinimg.com/originals/51/74/f4/5174f47fb04a3586fe696de7dba8191f.gif)
+![banner](https://i.pinimg.com/originals/27/8a/51/278a51f988bafe8ff6409061860e4aaf.gif)
 
 ---
 
