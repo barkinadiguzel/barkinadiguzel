@@ -14,8 +14,7 @@
 ---
 
 ## 💡 Interests
-- AI Research & Paper Implementation  
-- Game Development with Unity  
+- AI Research & Paper Implementation    
 - Chess & Strategic Thinking  
 - Neuroscience & Biology  
 - Physics & Scientific Exploration
