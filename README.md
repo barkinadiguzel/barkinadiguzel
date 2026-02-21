@@ -21,6 +21,12 @@
 
 ---
 
+## 📊 GitHub Stats
+
+![Barkın's GitHub Stats](https://github-readme-stats.vercel.app/api?username=barkinadiguzel&show_icons=true&count_private=true&hide_title=true&hide_rank=true)
+
+---
+
 ## 📫 Reach Me
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/barkinadiguzel/)
 [![Mail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:barkin.adiguzel@gmail.com)
