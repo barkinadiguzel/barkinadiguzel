@@ -1,7 +1,7 @@
 name: Update README with private stats
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  
   schedule:
     - cron: '0 0 * * 0' 
 
@@ -16,21 +16,20 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config user.name "Barkın Adıgüzel"
+          git config user.name "Barkın Bot"
           git config user.email "barkin.adiguzel@gmail.com"
 
       - name: Fetch repo stats and update README
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          total=$(curl -s -H "Authorization: token $GH_TOKEN" \
-            https://api.github.com/users/barkinadiguzel | jq .public_repos)
-          private=$(curl -s -H "Authorization: token $GH_TOKEN" \
-            https://api.github.com/users/barkinadiguzel | jq '.total_private_repos')
+          total=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel | jq .public_repos)
+          private=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel | jq '.total_private_repos')
           public=$((total - private))
-          
+
+          # README.md güncelle
           sed -i "s/Total Repos: .*/Total Repos: $((total + private))/g" README.md
-          sed -i "s/Public Repos: .*/Public Repos: $total/g" README.md
+          sed -i "s/Public Repos: .*/Public Repos: $public/g" README.md
           sed -i "s/Private Repos: .*/Private Repos: $private/g" README.md
 
       - name: Commit and push changes
