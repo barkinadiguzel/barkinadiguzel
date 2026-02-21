@@ -1,29 +1,38 @@
 # 👋 Hi, I'm Barkın
-**AI & Physics Enthusiast | Aspiring Researcher | Python & PyTorch Lover**
+**AI & Physics Enthusiast | Aspiring Researcher | Python & PyTorch**
 
-![banner](https://i.pinimg.com/originals/27/8a/51/278a51f988bafe8ff6409061860e4aaf.gif)
-
+<img width="736" height="414" alt="image" src="https://github.com/user-attachments/assets/9c8b6158-a521-4770-b846-35dd701059ee" />
 ---
 
 ## 🌱 Currently Learning
-- Modular AI & Deep Learning Systems (trying to understand and push SOTA)  
-- Computer Vision & Video Understanding  
-- Deep learning architectures from classic CNNs to modern transformers  
-- Video understanding, anomaly detection, and multimodal systems  
+- AI & Deep Learning: Understanding and implementing modular and SOTA models  
+- Computer Vision & Video Understanding
+- Graph-based AI (Working on MOF structures and GNNs)  
+- Biology-inspired AI 
+- Anomaly Detection
 
 ---
 
 ## 💡 Interests
-- AI Research & Paper Implementation    
-- Chess & Strategic Thinking  
-- Neuroscience & Biology  
+- AI Research & Paper Implementation
+- Chess & Strategic Thinking
+- Neuroscience & Biology
 - Physics & Scientific Exploration
 
 ---
 
-## 📊 GitHub Stats
+## 📌 GitHub Routine
+- I add new repositories daily by replicating papers and projects.  
+However, only the ones I find meaningful and fully worked on are made public, while the rest are kept in my private repositories.
 
-![Barkın's GitHub Stats](https://github-readme-stats.vercel.app/api?username=barkinadiguzel&show_icons=true&count_private=true&hide_title=true&hide_rank=true)
+---
+
+## 📈 Repository Status (Updated Automatically)
+- Total Repos: 0
+- Public Repos: 0
+- Private Repos: 0
+
+> *This section is automatically updated weekly by a GitHub Actions workflow.*
 
 ---
 
