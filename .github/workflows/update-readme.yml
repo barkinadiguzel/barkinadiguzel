@@ -5,10 +5,6 @@ on:
   schedule:
     - cron: '0 0 * * 0'  
 
-permissions:
-  contents: write
-  actions: read
-
 jobs:
   update-readme:
     runs-on: ubuntu-latest
@@ -18,30 +14,22 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y jq curl
 
-      - name: Setup Git
-        run: |
-          git config user.name "Barkın Adıgüzel"
-          git config user.email "barkin.adiguzel@gmail.com"
-
       - name: Fetch repo stats and update README
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
         run: |
-          # Repo bilgilerini GitHub API'den çek
-          stats=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel)
-          total=$(echo "$stats" | jq '.public_repos + .total_private_repos')
-          private=$(echo "$stats" | jq '.total_private_repos')
-          public=$(echo "$stats" | jq '.public_repos')
-
-          # README.md'yi güncelle
-          sed -i "s/Total Repos: .*/Total Repos: $total/g" README.md
-          sed -i "s/Public Repos: .*/Public Repos: $public/g" README.md
+          total=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel | jq .public_repos)
+          private=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/user | jq '.total_private_repos')
+          public=$((total - private))
+          
+          sed -i "s/Total Repos: .*/Total Repos: $((total + private))/g" README.md
+          sed -i "s/Public Repos: .*/Public Repos: $total/g" README.md
           sed -i "s/Private Repos: .*/Private Repos: $private/g" README.md
 
       - name: Commit and push changes
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
           git add README.md
-          git diff-index --quiet HEAD || git commit -m "Update repo stats"
+          git commit -m "Update repo stats" || echo "No changes"
           git push
