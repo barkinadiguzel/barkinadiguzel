@@ -3,26 +3,41 @@ name: Update README with private stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 0' 
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq curl
+
       - name: Setup Git
         run: |
-          git config user.name "Barkın Bot"
+          git config user.name "Barkın Adıgüzel"
           git config user.email "barkin.adiguzel@gmail.com"
-      - name: Fetch stats and update README
+
+      - name: Fetch repo stats and update README
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # repo sayıları hesaplama ve README güncelleme adımları buraya
+          total=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            https://api.github.com/users/barkinadiguzel | jq .public_repos)
+          private=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            https://api.github.com/users/barkinadiguzel | jq '.total_private_repos')
+          public=$((total - private))
+          
+          sed -i "s/Total Repos: .*/Total Repos: $((total + private))/g" README.md
+          sed -i "s/Public Repos: .*/Public Repos: $total/g" README.md
+          sed -i "s/Private Repos: .*/Private Repos: $private/g" README.md
+
       - name: Commit and push changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/barkinadiguzel/barkinadiguzel.git
           git add README.md
-          git commit -m "update stats" || echo "No changes"
-          git push
+          git commit -m "Update repo stats" || echo "No changes"
+          git push origin main
