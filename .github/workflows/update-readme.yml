@@ -1,9 +1,13 @@
 name: Update README with private stats
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0' 
+    - cron: '0 0 * * 0'  
+
+permissions:
+  contents: write
+  actions: read
 
 jobs:
   update-readme:
@@ -16,19 +20,21 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config user.name "Barkın Bot"
+          git config user.name "Barkın Adıgüzel"
           git config user.email "barkin.adiguzel@gmail.com"
 
       - name: Fetch repo stats and update README
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          total=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel | jq .public_repos)
-          private=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel | jq '.total_private_repos')
-          public=$((total - private))
+          # Repo bilgilerini GitHub API'den çek
+          stats=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/users/barkinadiguzel)
+          total=$(echo "$stats" | jq '.public_repos + .total_private_repos')
+          private=$(echo "$stats" | jq '.total_private_repos')
+          public=$(echo "$stats" | jq '.public_repos')
 
-          # README.md güncelle
-          sed -i "s/Total Repos: .*/Total Repos: $((total + private))/g" README.md
+          # README.md'yi güncelle
+          sed -i "s/Total Repos: .*/Total Repos: $total/g" README.md
           sed -i "s/Public Repos: .*/Public Repos: $public/g" README.md
           sed -i "s/Private Repos: .*/Private Repos: $private/g" README.md
 
@@ -36,7 +42,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/barkinadiguzel/barkinadiguzel.git
           git add README.md
-          git commit -m "Update repo stats" || echo "No changes"
-          git push origin main
+          git diff-index --quiet HEAD || git commit -m "Update repo stats"
+          git push
