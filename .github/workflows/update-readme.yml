@@ -1,0 +1,28 @@
+name: Update README with private stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+      - name: Setup Git
+        run: |
+          git config user.name "Barkın Bot"
+          git config user.email "barkin.adiguzel@gmail.com"
+      - name: Fetch stats and update README
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          # repo sayıları hesaplama ve README güncelleme adımları buraya
+      - name: Commit and push changes
+        run: |
+          git add README.md
+          git commit -m "update stats" || echo "No changes"
+          git push
