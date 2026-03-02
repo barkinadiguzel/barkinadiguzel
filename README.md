@@ -28,9 +28,9 @@ However, only the ones I find meaningful and fully worked on are made public, wh
 ---
 
 ## 📈 Repository Status (Updated Automatically)
-- Total Repos: 140
-- Public Repos: 116
-- Private Repos: 24
+- Total Repos: 150
+- Private Repos: 126
+- Public Repos: 24
 
 > *This section is automatically updated weekly by a GitHub Actions workflow.*
 
