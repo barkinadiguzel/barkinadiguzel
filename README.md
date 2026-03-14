@@ -22,17 +22,10 @@
 ---
 
 ## 📌 GitHub Routine
-- I add new repositories daily by replicating papers and projects.  
-However, only the ones I find meaningful and fully worked on are made public, while the rest are kept in my private repositories.
+I regularly implement and replicate research papers and projects as part of my learning and research practice. 
+All repositories are public, and I continuously add new implementations.
 
----
-
-## 📈 Repository Status (Updated Automatically)
-- Total Repos: 162
-- Private Repos: 137
-- Public Repos: 25
-
-> *This section is automatically updated weekly by a GitHub Actions workflow.*
+**For the most representative and polished work, please check the starred repositories.**
 
 ---
 
