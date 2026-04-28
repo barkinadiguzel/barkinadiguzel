@@ -18,12 +18,8 @@
 - Chess & Strategic Thinking
 - Neuroscience & Biology
 - Physics & Scientific Exploration
-
 ---
 
-## 📌 GitHub Routine
-I regularly implement and replicate research papers and projects as part of my learning and research practice. 
-All repositories are public, and I continuously add new implementations.
 
 **For the most representative and polished work, please check the starred repositories.**
 
